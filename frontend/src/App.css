@@ -308,3 +308,141 @@ margin-bottom: 1rem;
   font-size: 0.85rem;
   line-height: 1.5;
 }
+
+.skills {
+  padding: 5rem 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1.5rem;
+  max-width: 1000px; 
+  margin: 0 auto 4rem auto;
+}
+
+.skill-card {
+  background-color: #0f1523;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.skill-card:hover {
+  border-color: rgba(0, 210, 255, 0.5);
+  box-shadow: 0 10px 30px -10px rgb(172, 173, 173);
+  transform: translateY(-3px);
+}
+
+.skill-category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill-category-title h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.category-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.cyan-icon { background-color: rgba(0, 210, 255, 0.15); }
+.cyan-text { color: #00d2ff; font-weight: 600; }
+.cyan-bar { background: linear-gradient(90deg, #00d2ff, #0072ff); }
+
+.blue-icon { background-color: rgba(59, 130, 246, 0.15); }
+.blue-text { color: #3b82f6; font-weight: 600; }
+.blue-bar { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+
+.purple-icon { background-color: rgba(147, 51, 234, 0.15); }
+.purple-text { color: #c084fc; font-weight: 600; }
+.purple-bar { background: linear-gradient(90deg, #9333ea, #c084fc); }
+
+.skill-item {
+  margin-bottom: 1.25rem;
+}
+
+.skill-item:last-child {
+  margin-bottom: 0;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  margin-bottom: 0.4rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #171d2d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 10px;
+}
+
+
+.tech-section {
+  margin-top: 3rem;
+}
+
+.tech-icons-title {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat( 5 , minmax(40px, 1fr));
+  width: 1000px;
+  gap: 1rem;
+   margin: 0 auto 4rem auto;
+  align-items: center;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  background-color: #0f1523;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tech-item:hover {
+  border-color: #00d2ff;
+  color: #f3f4f6;
+}
+
+.tech-icon {
+  color: #00d2ff;
+  font-weight: bold;
+  font-size: 1rem;
+}
