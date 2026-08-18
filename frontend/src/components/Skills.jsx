@@ -1,3 +1,5 @@
+  import { Settings, Smartphone, Database, Wrench } from "lucide-react";
+  
   const frontendSkills = [
     { name: 'HTML5', level: '95%' },
     { name: 'CSS3', level: '92%' },
@@ -38,7 +40,7 @@ function Skills(){
       <div className="skills-grid">
         <div className="card skill-card">
           <div className="skill-category-title cyan-title">
-            <span className="category-icon cyan-icon">📱</span>
+            <span className="category-icon cyan-icon"><Smartphone /></span>
             <h3>Frontend</h3>
           </div>
           {frontendSkills.map((skill, index) => (
@@ -56,7 +58,7 @@ function Skills(){
 
         <div className="card skill-card">
           <div className="skill-category-title blue-title">
-            <span className="category-icon blue-icon">⚙️</span>
+            <span className="category-icon blue-icon"><Settings />  </span>
             <h3>Backend</h3>
           </div>
           {backendSkills.map((skill, index) => (
@@ -74,7 +76,7 @@ function Skills(){
 
         <div className="card skill-card">
           <div className="skill-category-title purple-title">
-            <span className="category-icon purple-icon">🗄️</span>
+            <span className="category-icon purple-icon"><Database /></span>
             <h3>Database</h3>
           </div>
           {databaseSkills.map((skill, index) => (
@@ -92,7 +94,7 @@ function Skills(){
 
         <div className="card skill-card">
           <div className="skill-category-title cyan-title">
-            <span className="category-icon cyan-icon">🔧</span>
+            <span className="category-icon cyan-icon"><Wrench /> </span>
             <h3>Tools &amp; Others</h3>
           </div>
           {toolsSkills.map((skill, index) => (
