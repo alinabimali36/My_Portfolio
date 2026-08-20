@@ -92,6 +92,11 @@ const Projects = () => {
           </div>
         ))}
       </div>
+      <div className="view-more-container">
+        <a href="https://github.com/alinabimali36" target="_blank" rel="noopener noreferrer" className="btn-view-all">
+        View All Projects on GitHub
+        </a>
+      </div>
     </section>
   );
 };

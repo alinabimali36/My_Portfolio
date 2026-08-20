@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-root",
+  "version": "1.0.0",
+  "scripts": {
+    "backend": "cd backend && npm start",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+
+
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
