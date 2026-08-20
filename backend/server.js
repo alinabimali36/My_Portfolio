@@ -5,29 +5,59 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const Contact = require('./models/Contact');
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/portfolio')
-  .then(() => console.log('MongoDB Connected Successfully'))
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/portfolio')
+  .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, message } = req.body;
+
     if (!name || !email || !message) {
       return res.status(400).json({ error: 'All fields are required' });
     }
+
     const newContact = new Contact({ name, email, message });
     await newContact.save();
-    res.status(201).json({ success: true, message: 'Message saved successfully!' });
+
+    const mailOptions = {
+      from: email,
+      to: process.env.EMAIL_USER,
+      subject: `New Portfolio Message from ${name}`,
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return res.status(201).json({ success: true, message: 'Message sent successfully!' });
+
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    console.error('Error handling contact form:', error);
+    return res.status(500).json({ error: 'Failed to send message.' });
   }
 });
 
