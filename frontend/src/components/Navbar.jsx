@@ -51,8 +51,6 @@ function Navbar() {
             </li>
           ))}
         </ul>
-
-        {/* Dark/Light Toggle Button */}
         <ThemeToggle />
       </div>
     </nav>

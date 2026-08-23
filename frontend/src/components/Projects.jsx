@@ -1,4 +1,3 @@
-import TaskManagerImage from "../assets/Task-Manager.jpg";
 import ExpenseTrackerImage from "../assets/Expense-Tracker.jpg";
 import SimonGameImage from "../assets/Simon-Game.png"
 import DurmKitImage from "../assets/Durm-Kit.png"
@@ -6,14 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub} from "@fortawesome/free-brands-svg-icons";
 
 const projectsData = [
-  {
-    title: "Task Manager App",
-    description: "A full-stack CRUD task management app to create, update, complete, and filter tasks with database persistence.",
-    tags: ["Node.js", "Express", "MongoDB",],
-    image: TaskManagerImage,
-    demoLink: "https://alinabimali36-task-manager-demo.com",
-    githubLink: "https://github.com/alinabimali36/Task-Manager"
-  },
   {
     title: "Expense Tracker",
     description: "A personal finance tracker for logging income and expenses, visualizing budget breakdowns, and managing history.",
