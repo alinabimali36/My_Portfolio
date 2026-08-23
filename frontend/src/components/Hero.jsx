@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function Hero() {
   return (
@@ -18,7 +19,7 @@ function Hero() {
         </p>
         <div className="hero-btns">
           <a href="#projects" className="btn-primary">View Projects &rarr;</a>
-          <a href="#contact" className="btn-secondary">Contact Me ✉</a>
+          <a href="#contact" className="btn-secondary">Contact Me<FontAwesomeIcon icon={faEnvelope} /></a>
         </div>
         <div className="hero-socials">
           <span>Connect with me:</span>
