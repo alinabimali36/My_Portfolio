@@ -9,7 +9,7 @@ function Footer() {
           <div>
             <div className="logo-container">
              <div className="logo-icon">&lt;/&gt;</div>
-              <span className="logo-text">Alina<span className="blue-text">Portfolio</span></span>
+              <span className="logo-text">Alina's<span className="blue-text">Portfolio</span></span>
             </div>
             <p className="footer-desc">
               Crafting beautiful, functional web experiences with modern technologies and clean code.
@@ -38,7 +38,7 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 AlinaPortfolio. All rights reserved.</p>
+          <p>© 2026 Alina's Portfolio. All rights reserved.</p>
           <p>Made with ❤️ by a passionate developer</p>
         </div>
       </div>

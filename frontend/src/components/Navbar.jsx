@@ -33,7 +33,7 @@ function Navbar() {
       <div className="logo-container">
         <div className="logo-icon">&lt;/&gt;</div>
         <span className="logo-text">
-          Alina<span className="blue-text">Portfolio</span>
+          Alina's<span className="blue-text">Portfolio</span>
         </span>
       </div>
 
