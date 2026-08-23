@@ -1,32 +1,43 @@
-  import { Settings, Smartphone, Database, Wrench } from "lucide-react";
-  
-  const frontendSkills = [
-    { name: 'HTML5', level: '95%' },
-    { name: 'CSS3', level: '92%' },
-    { name: 'JavaScript', level: '90%' },
-    { name: 'React', level: '88%' },
-  ];
+import { Settings, Smartphone, Database, Wrench} from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHtml5, faCss3Alt, faJs, faReact, faNodeJs, faGitAlt } from '@fortawesome/free-brands-svg-icons';
+import { faDatabase, faServer, faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
-  const backendSkills = [
-    { name: 'Node.js', level: '85%' },
-    { name: 'Express', level: '82%' },
-    { name: 'REST APIs', level: '88%' },
-  ];
+const frontendSkills = [
+  { name: 'HTML5', level: '95%' },
+  { name: 'CSS3', level: '92%' },
+  { name: 'JavaScript', level: '90%' },
+  { name: 'React', level: '88%' },
+];
 
-  const databaseSkills = [
-    { name: 'MongoDB', level: '85%' },
-  ];
+const backendSkills = [
+  { name: 'Node.js', level: '85%' },
+  { name: 'Express', level: '82%' },
+  { name: 'REST APIs', level: '88%' },
+];
 
-  const toolsSkills = [
-    { name: 'Git & GitHub', level: '90%' },
-    { name: 'VS Code', level: '95%' },
-  ];
+const databaseSkills = [
+  { name: 'MongoDB', level: '85%' },
+];
 
-  const techStack = [
-    'HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'MongoDB',
-    'Git','Express', 'REST API',
-  ];
-function Skills(){
+const toolsSkills = [
+  { name: 'Git & GitHub', level: '90%' },
+  { name: 'VS Code', level: '95%' },
+];
+
+const techStack = [
+  { name: 'HTML', icon: faHtml5 },
+  { name: 'CSS', icon: faCss3Alt },
+  { name: 'JavaScript', icon: faJs },
+  { name: 'React', icon: faReact },
+  { name: 'Node.js', icon: faNodeJs },
+  { name: 'MongoDB', icon: faDatabase },
+  { name: 'Git', icon: faGitAlt },
+  { name: 'Express', icon: faServer },
+  { name: 'REST API', icon: faNetworkWired },
+];
+
+function Skills() {
   return (
     <section className="skills container" id="skills">
       <span className="section-tag">SKILLS &amp; EXPERTISE</span>
@@ -58,7 +69,7 @@ function Skills(){
 
         <div className="card skill-card">
           <div className="skill-category-title blue-title">
-            <span className="category-icon blue-icon"><Settings />  </span>
+            <span className="category-icon blue-icon"><Settings /></span>
             <h3>Backend</h3>
           </div>
           {backendSkills.map((skill, index) => (
@@ -94,7 +105,7 @@ function Skills(){
 
         <div className="card skill-card">
           <div className="skill-category-title cyan-title">
-            <span className="category-icon cyan-icon"><Wrench /> </span>
+            <span className="category-icon cyan-icon"><Wrench /></span>
             <h3>Tools &amp; Others</h3>
           </div>
           {toolsSkills.map((skill, index) => (
@@ -112,18 +123,20 @@ function Skills(){
       </div>
 
       <div className="tech-section">
-        <h3 className="tech-icons-title">Technologies I Work With</h3>
-        <div className="tech-grid">
-          {techStack.map((tech, index) => (
-            <div key={index} className="card tech-item">
-              <span className="tech-icon">&lt;/&gt;</span>
-              <span>{tech}</span>
-            </div>
-          ))}
-        </div>
+       <h3 className="tech-icons-title">Technologies I Work With</h3>
+       <div className="tech-grid">
+        {techStack.map((tech, index) => (
+        <div key={index} className="card tech-item">
+        <span className="tech-icon">
+          <FontAwesomeIcon icon={tech.icon} size="2xl" />
+        </span>
+        <span className="tech-name">{tech.name}</span>
       </div>
+    ))}
+  </div>
+</div>
     </section>
   );
-};
+}
 
 export default Skills;
