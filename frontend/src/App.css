@@ -881,8 +881,21 @@ section {
 }
 
 @media (max-width: 768px) {
-  .container, section {
+  .container, section, .contact-wrapper, 
+  .card  {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+  }
+
+  footer, .footer-content {
+    padding-left: 1.5rem !important;
+    padding-right: 4rem !important; 
   }
 }
