@@ -9,68 +9,80 @@ function Navbar() {
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      {
-        rootMargin: '-20% 0px -50% 0px',
-        threshold: 0.1
-      }
+      { rootMargin: '-20% 0px -50% 0px', threshold: 0.1 }
     );
-
     sections.forEach((section) => observer.observe(section));
-
     return () => observer.disconnect();
   }, []);
 
   const navItems = ['home', 'about', 'skills', 'projects', 'contact'];
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleNavClick = (item) => {
-    setActiveSection(item);
-    setIsOpen(false);
-  };
-
   return (
     <nav className="navbar">
-      <div className="logo-container">
-        <div className="logo-icon">&lt;/&gt;</div>
-        <span className="logo-text"> Alina's <span className="blue-text">Portfolio</span>
-        </span>
-      </div>
-
-      <div className="nav-controls">
+      <div className="nav-left">
         <button 
           className="menu-toggle" 
-          onClick={toggleMenu} 
-          aria-label="Toggle navigation menu"
+          onClick={() => setIsOpen(true)} 
+          aria-label="Open menu"
         >
-          <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
+          <FontAwesomeIcon icon={faBars} />
         </button>
 
-        <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+        <div className="logo-container">
+          <div className="logo-icon">&lt;/&gt;</div>
+          <span className="logo-text">Alina's <span className="blue-text">Portfolio</span>
+          </span>
+        </div>
+      </div>
+
+      {isOpen && <div className="sidebar-backdrop" onClick={() => setIsOpen(false)}></div>}
+
+      <div className={`sidebar-drawer ${isOpen ? 'open' : ''}`}>
+        <div className="sidebar-header">
+          <div className="logo-container">
+            <div className="logo-icon">&lt;/&gt;</div>
+            <span className="logo-text">Alina's Portfolio</span>
+          </div>
+          <button className="close-btn" onClick={() => setIsOpen(false)}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
+        </div>
+
+        <ul className="sidebar-links">
           {navItems.map((item) => (
             <li key={item}>
               <a
                 href={`#${item}`}
                 className={activeSection === item ? 'nav-link active' : 'nav-link'}
-                onClick={() => handleNavClick(item)}>
+                onClick={() => setIsOpen(false)}
+              >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </a>
             </li>
           ))}
         </ul>
-        <ThemeToggle />
       </div>
+
+      <ul className="desktop-nav-links">
+        {navItems.map((item) => (
+          <li key={item}>
+            <a
+              href={`#${item}`}
+              className={activeSection === item ? 'nav-link active' : 'nav-link'}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <ThemeToggle />
     </nav>
   );
 }
