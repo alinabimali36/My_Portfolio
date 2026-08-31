@@ -951,9 +951,21 @@ section {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
   }
+}
 
-  footer, .footer-content {
-    padding-left: 1.5rem !important;
-    padding-right: 4rem !important; 
+@media (max-width: 768px) {
+  .footer, 
+  .footer-container, 
+  footer {
+    padding-left: 1.25rem !important; 
+    padding-right: 1.25rem !important; 
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+  }
+
+  .footer-content {
+    align-items: flex-start;
+    text-align: left;
   }
 }
